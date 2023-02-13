@@ -4,6 +4,173 @@
     box-sizing: content-box;
 }
 
+html{
+    height: 100%;
+}
+
 body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
     background-color: #e58ce6;
+}
+
+header{
+    background-color: rgb(161, 98, 219);
+    
+}
+
+nav ul{
+    padding: 25px;
+    display: flex;
+    justify-content: right;
+    list-style: none;
+    
+}
+
+li a{
+    color: #ffffff;
+    margin: 4px;
+    padding: 4px 10px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    text-decoration: none; 
+}
+
+.title{
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: space-between ;
+    
+}
+
+.title a{
+    margin: 5px;
+}
+
+.disactive{
+    color: #e58ce6;
+}
+
+#logo-amazing{
+    /* background-color: rgba(240, 255, 255, 0.628);
+    border: 2px solid;
+    border-radius: 25px; */
+    position: absolute;
+    margin: 15px 15px;
+    padding: 5px;
+}
+
+.cards{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cards div{
+    background-color: #ffffff;
+    margin: 20px;
+    padding: 2px;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    width: 250px;
+    box-shadow: 0 0 20px 0;
+}
+
+.cards div img{
+    width: 100% ;
+    border-radius: 3px;
+    height: 130px;
+}
+
+button{
+    display: flex;
+    justify-content: center;
+}
+
+.cards-details{
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
+form{
+   
+   display: flex;
+   flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+}
+.form{
+    margin-left: 10%;
+    margin-top: 30px;
+    padding: 10px;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    width: 40%;
+   
+}
+.form input,span{
+     margin: 10px;
+}
+
+#buttom{
+    color: #ffffff;
+    padding: 4px;
+    border-radius: 6px;
+    background-color: #6f1570;
+}
+
+#buttom:hover{
+    background-color: #ffffff;
+    color: #6f1570;
+    font-weight: bold;
+}
+
+#volver-home{
+    text-decoration: none;
+    border: 2px solid black;
+    padding: 10px;
+    
+}
+
+#volver-home-div{
+  margin-top: 20px;  
+}
+
+
+table{
+    margin-top: 20px;
+    border: 2px solid black;
+}
+tr, th, td{
+    height: 30px;
+    background-color: #fffdff;
+    padding: 5px 6px;
+    text-align: left;
+    border: 1px solid;
+}
+th{
+    color: #ffffff;
+    background-color: #6f1570;
+}
+
+.content-table{
+    display: flex;
+    justify-content: center;
+}
+
+footer{
+    background-color: #d44fd6;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #000000;
+}
+.logos-redes img{
+    margin: 2px;
+    padding-left: 10px;
+    height: 35px;
+}
+footer p{
+    margin: 6px 12px;
 }
