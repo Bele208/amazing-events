@@ -37,6 +37,11 @@ li a{
     text-decoration: none; 
 }
 
+li a:hover{
+    background-color: #ffffff;
+    color: #6f1570;
+}
+
 .title{
     border-bottom: 1px solid black;
     display: flex;
@@ -67,7 +72,9 @@ li a{
     flex-wrap: wrap;
 }
 
-.cards div{
+.cards>div{
+    display: flex;
+    flex-direction: column;
     background-color: #ffffff;
     margin: 20px;
     padding: 2px;
@@ -77,15 +84,29 @@ li a{
     box-shadow: 0 0 20px 0;
 }
 
+.cards a{
+    border: 1px solid #000000;
+    border-radius: 5px;
+    color: #000000;
+    padding: 6px;
+    text-decoration: none;  
+}
+.cards a:hover{
+    background-color: #6f1570;
+    color: #ffffff;
+    font-weight: bold;
+}
+.price{
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .cards div img{
     width: 100% ;
     border-radius: 3px;
     height: 130px;
-}
-
-button{
-    display: flex;
-    justify-content: center;
 }
 
 .cards-details{
@@ -93,30 +114,38 @@ button{
     align-items: center;
     justify-content: center;
 }
+.cards h3, p{
+    text-align: center;
+}
+
+
 form{
-   
-   display: flex;
-   flex-direction: column;
-    justify-content: center;
-    align-items: center;  
+    padding: 20px;
 }
 .form{
-    margin-left: 10%;
+    margin: 0 auto;
     margin-top: 30px;
-    padding: 10px;
+    margin-bottom: 20px;
     border: 2px solid #000000;
     border-radius: 5px;
-    width: 40%;
+    width: 300px;
    
 }
-.form input,span{
-     margin: 10px;
+
+.section-form{
+    padding: 6px;
+    width: 250px;
+}
+form .label{
+    display: flex;
+    flex-direction: column;
 }
 
 #buttom{
     color: #ffffff;
     padding: 4px;
     border-radius: 6px;
+    margin: 20px 100px 0px;
     background-color: #6f1570;
 }
 
@@ -125,6 +154,7 @@ form{
     color: #6f1570;
     font-weight: bold;
 }
+
 
 #volver-home{
     text-decoration: none;
@@ -140,6 +170,7 @@ form{
 
 table{
     margin-top: 20px;
+    margin-bottom: 20px;
     border: 2px solid black;
 }
 tr, th, td{
@@ -173,4 +204,18 @@ footer{
 }
 footer p{
     margin: 6px 12px;
+}
+
+.flecha{
+    margin-top: 10px;
+    height: 25px;
+}
+#img-none{
+    display: none;
+}
+.form-category{
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
