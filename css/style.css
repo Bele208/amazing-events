@@ -95,8 +95,8 @@ li a:hover{
 }
 .price{
     margin: 5px;
+    margin-top: auto;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
 }
 
@@ -113,6 +113,10 @@ li a:hover{
 }
 .cards h3, p{
     text-align: center;
+}
+
+.cards h3 {
+    font-size: 1.5rem;
 }
 
 form{
@@ -216,11 +220,12 @@ footer p{
     display: none;
 }
 .form-category{
-    margin: 10px;
+    margin: 5px;
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     justify-content: space-between;
 }
+
 .details{
     margin: 0 auto;
     margin-top: 40px;
