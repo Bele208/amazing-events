@@ -190,7 +190,7 @@ return eventosPasados;
 
 console.log(pastFechas(data.events))
 
-///////////////////////////////////////////////////////////
+//////////////////-----------CARDS-----------/////////////////////
 
   let cards2 = document.getElementById("cards")
   let fragmento = document.createDocumentFragment()
@@ -235,3 +235,6 @@ console.log(pastFechas(data.events))
   }
   
   cards2.appendChild(fragmento)
+
+  /////////////---------CATEGORIAS--------////////////
+
