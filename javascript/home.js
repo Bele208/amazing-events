@@ -172,7 +172,7 @@ var data = {
     ]
   }
 
-
+//////////////////-----------CARDS-----------/////////////////////
   let events = data.events
   let cards2 = document.getElementById("cards")
   let fragmento = document.createDocumentFragment()

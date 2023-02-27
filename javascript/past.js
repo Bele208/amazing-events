@@ -236,5 +236,5 @@ console.log(pastFechas(data.events))
   
   cards2.appendChild(fragmento)
 
-  /////////////---------CATEGORIAS--------////////////
+ 
 

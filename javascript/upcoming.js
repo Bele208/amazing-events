@@ -190,7 +190,7 @@ return eventosFuturos;
 
 console.log(compararFechas(data.events))
 
-///////////////////////////////////////////////////////
+//////////////////-----------CARDS-----------/////////////////////
 
 let cards2 = document.getElementById("cards")
 let fragmento = document.createDocumentFragment()
