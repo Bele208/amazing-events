@@ -235,3 +235,22 @@ for (events of eventosFuturos){
 }
 
 cards2.appendChild(fragmento)
+
+  ///////////////////--------TASK3----------///////////////////////
+
+  let categorias = [];
+
+  let category = document.getElementById("form-category")
+  data.events.forEach(evento => {
+    if(!categorias.includes(evento.category)){
+      categorias.push(evento.category)
+        category.innerHTML += `
+          <div id="content-cat">
+              <label>
+                  <input type="checkbox" name="category1" id="category1">
+                  <span>${evento.category}</span>
+              </label>
+          </div>`
+  }
+  });
+  console.log(categorias)
