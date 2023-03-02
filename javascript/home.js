@@ -28,6 +28,7 @@
     let verMas = document.createElement('a')
     verMas.className = "verMas"
     verMas.textContent = "Ver Más..."
+    verMas.href = "./details.html"
   
     let divPrice = document.createElement('div')
     divPrice.className = "price"
@@ -63,3 +64,5 @@
   }
   });
   console.log(categorias)
+
+
