@@ -82,11 +82,14 @@ li a:hover{
 }
 
 .cards a{
-    border: 1px solid #000000;
     border-radius: 5px;
     color: #000000;
     padding: 6px;
     text-decoration: none;  
+}
+
+.verMas{
+    border: 1px solid #000000; 
 }
 .cards a:hover{
     background-color: #6f1570;
@@ -106,11 +109,6 @@ li a:hover{
     height: 130px;
 }
 
-.cards-details{
-    display: block;
-    align-items: center;
-    justify-content: center;
-}
 .cards h3, p{
     text-align: center;
 }
@@ -177,7 +175,6 @@ form .label{
   margin-top: 20px;  
 }
 
-
 table{
     margin-top: 20px;
     margin-bottom: 20px;
@@ -230,27 +227,39 @@ footer p{
     justify-content: space-between;
 }
 
+/* --------------DETAILS-------------- */
 .details{
     margin: 0 auto;
-    margin-top: 40px;
+    margin-top: 25px;
+    margin-bottom: 10px;
     padding: 30px 20px;
     display: flex;
+    justify-content: center;
     border: 2px solid #000000;
     border-radius: 5px;
-    width: 50%;
+    width: 65%;
+    background-color: #ffedff;
 }
 
 .details img{
     border: 2px solid #000000;
     box-shadow: 0 0 20px 0;
+    height: 220px;
 }
+.cards-details{
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
+
 #details-text{
     background-color: #fffdff;
     text-align: center;
-    margin-left: 15px;
+    margin-left: 5%;
     padding: 4px;
     border: 2px solid #000000;
     box-shadow: 0 0 20px 0;
+    width: 45%;
 }
 
 /* ////////////////////////MEDIA QUERIES/////////////////////////// */

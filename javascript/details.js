@@ -1,9 +1,33 @@
+console.log([document])
+let query = location.search
 
-//<div class="details">
-//  <img src="./img/Marathon.jpg" alt="">
-//      <div id="details-text">
-//          <h3>Title</h3>
-//          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, quis laborum rem cum culpa natus molestiae, commodi ducimus ratione nostrum, recusandae vitae suscipit libero quam voluptate impedit nemo nisi deserunt!
-//          Maiores, sunt.</p>
-//      </div>
-//</div>
+let parametros = new URLSearchParams(query)
+
+const id = parametros.get("id")
+
+let eventos = data.events
+let eventito = eventos.find(eventito => eventito._id == id)
+console.log(eventos)
+
+let contDetails = document.getElementById('cards-details')
+
+    contDetails.innerHTML += `
+        <div class="details">
+        <img src="${eventito.image}" alt="Imagen Evento">
+        <div id="details-text">
+            <h3>${eventito.name}</h3>
+            <p>${eventito.description}</p>
+            <div>
+            <p>Date: ${eventito.date}</p>
+            <p>Category: ${eventito.category}</p>
+            <p>Place: ${eventito.place}</p>
+            <p>Capacity: ${eventito.capacity}</p>
+            <p>Price: U$s${eventito.price}</p>
+            </div>
+        </div>
+</div>
+        
+        `
+
+
+// {}

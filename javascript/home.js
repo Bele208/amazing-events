@@ -1,5 +1,9 @@
 // 
 //////////////////-----------CARDS-----------/////////////////////
+const queryString = location.search
+const params = new URLSearchParams(queryString)
+const id = params.get("_id")
+
   let events = data.events
   let cards2 = document.getElementById("cards")
   let fragmento = document.createDocumentFragment()
@@ -27,8 +31,8 @@
   
     let verMas = document.createElement('a')
     verMas.className = "verMas"
-    verMas.textContent = "Ver Más..."
-    verMas.href = "./details.html"
+    verMas.innerHTML = `
+    <a href="./details.html?id=${events._id}">Ver Más</a>`
   
     let divPrice = document.createElement('div')
     divPrice.className = "price"
@@ -64,5 +68,8 @@
   }
   });
   console.log(categorias)
+
+  //------------- FILTRO CATEGORÍA -------------//
+
 
 

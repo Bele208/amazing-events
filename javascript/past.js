@@ -43,7 +43,8 @@ console.log(pastFechas(data.events))
   
     let verMas = document.createElement('a')
     verMas.className = "verMas"
-    verMas.textContent = "Ver Más..."
+    verMas.innerHTML = `
+    <a href="./details.html?id=${events._id}">Ver Más</a>`
   
     let divPrice = document.createElement('div')
     divPrice.className = "price"
