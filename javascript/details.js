@@ -1,33 +1,27 @@
-console.log([document])
 let query = location.search
 
 let parametros = new URLSearchParams(query)
 
-const id = parametros.get("id")
+let id = parametros.get("id")
 
 let eventos = data.events
-let eventito = eventos.find(eventito => eventito._id == id)
-console.log(eventos)
+let eventDetail = eventos.find(eventDetail => eventDetail._id == id)
 
-let contDetails = document.getElementById('cards-details')
 
-    contDetails.innerHTML += `
-        <div class="details">
-        <img src="${eventito.image}" alt="Imagen Evento">
+let contDetails = document.querySelector(".cards-details")
+
+    contDetails.innerHTML = `<div class="details">
+        <img src="${eventDetail.image}" alt="${eventDetail.name}">
         <div id="details-text">
-            <h3>${eventito.name}</h3>
-            <p>${eventito.description}</p>
+            <h3>${eventDetail.name}</h3>
+            <p>${eventDetail.description}</p>
             <div>
-            <p>Date: ${eventito.date}</p>
-            <p>Category: ${eventito.category}</p>
-            <p>Place: ${eventito.place}</p>
-            <p>Capacity: ${eventito.capacity}</p>
-            <p>Price: U$s${eventito.price}</p>
+            <p>Date: ${eventDetail.date}</p>
+            <p>Category: ${eventDetail.category}</p>
+            <p>Place: ${eventDetail.place}</p>
+            <p>Capacity: ${eventDetail.capacity}</p>
+            <p>Price: U$s${eventDetail.price}</p>
             </div>
         </div>
-</div>
-        
-        `
+</div>`
 
-
-// {}

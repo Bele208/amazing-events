@@ -156,25 +156,6 @@ form .label{
     font-weight: bold;
 }
 
-
-#volver-home{
-    text-decoration: none;
-    margin-left: 10px;
-    border: 2px solid black;
-    border-radius: 10px;
-    padding: 10px;
-    background-color: #ffffff;
-    color: #6f1570;  
-}
-#volver-home:hover{
-    color: #ffffff;
-    background-color: #6f1570;
-}
-
-#volver-home-div{
-  margin-top: 20px;  
-}
-
 table{
     margin-top: 20px;
     margin-bottom: 20px;
@@ -238,7 +219,7 @@ footer p{
     border: 2px solid #000000;
     border-radius: 5px;
     width: 65%;
-    background-color: #ffedff;
+    background-color: #efd1ef;
 }
 
 .details img{
@@ -290,13 +271,15 @@ footer p{
         height: 200px;
     }
     .details{
+        width: 60%;
         margin-top: 10px;
         margin-bottom: 20px;
         flex-direction: column;
         justify-content: center;
     }
     #details-text{
-        margin-left: 0px;
+        width: 90%;
+        margin-left: 20px;
     }
     .cards h3{
         font-size: 1.2rem;
@@ -329,7 +312,8 @@ footer p{
         justify-content: center;
     }
     #details-text{
-        margin-left: 0px;
+        width: 86%;
+        
     }
     #logo-amazing{
         position: relative;
@@ -341,8 +325,10 @@ footer p{
         justify-content: center;        
     }
     li a{
+        height: 30px;
         font-size: 12px;
         display: flex;
+        align-items: center;
         padding: 2px 8px;
     }
     .title a{
