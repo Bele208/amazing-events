@@ -93,4 +93,3 @@ function verificado() {
 };
 
 //POR EL MOMENTO, NO PUEDO REALIZAR EL BUSCADOR//
-
