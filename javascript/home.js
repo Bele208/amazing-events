@@ -73,13 +73,11 @@ data.events.forEach(evento => {
 //------------- FILTRO CATEGORÍA -------------//
 let checkBoton = document.querySelectorAll("input[type='checkbox']")
 let eventsChecked = []
-// console.log(events)
 
 checkBoton.forEach(boton => boton.addEventListener('change', verificado))
 function verificado() {
   eventsChecked = []
   let seleccionar = Array.from(checkBoton).filter(check => check.checked)
-  // console.log(seleccionar)
   for (const event of data.events) {
     seleccionar.forEach(input => {
       if (event.category == input.value) {
@@ -87,7 +85,6 @@ function verificado() {
       }
     });
   }
-  // console.log(eventsChecked)
   if (eventsChecked.length > 0) {
     crearCard(eventsChecked, ".cards")
   } else {
@@ -95,5 +92,5 @@ function verificado() {
   }
 };
 
+//POR EL MOMENTO, NO PUEDO REALIZAR EL BUSCADOR//
 
-//--------------------BUSCADOR--------------------//

@@ -133,6 +133,10 @@ form{
     background-color: #fcebfc;
 }
 
+.form textarea{
+    resize:none;
+}
+
 .section-form{
     padding: 6px;
     width: 250px;
