@@ -1,9 +1,61 @@
+let urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
+
+async function traerDatos() {
+  try {
+    let response = await fetch(urlApi)
+
+    let datos = await response.json()
+
+    crearCard(datos.events, ".cards")
+
+    // Agregar categorías 
+    let categorias = []
+    let category = document.getElementById("form-category")
+    datos.events.forEach(evento => {
+      if (!categorias.includes(evento.category)) {
+        categorias.push(evento.category)
+        category.innerHTML += `
+              <div id="content-cat">
+                  <label class="checkbox">
+                      <input type="checkbox" name="category" id="${evento.category}" value="${evento.category}">
+                      <span>${evento.category}</span>
+                  </label>
+              </div>`
+      }
+    });
+    let checkBoton = document.querySelectorAll("input[type='checkbox']")
+    let eventsChecked = []
+
+    checkBoton.forEach(boton => boton.addEventListener('change', verificado))
+    function verificado() {
+      eventsChecked = []
+      let seleccionar = Array.from(checkBoton).filter(check => check.checked)
+      for (const event of datos.events) {
+        seleccionar.forEach(input => {
+          if (event.category == input.value) {
+            eventsChecked.push(event)
+          }
+        });
+      }
+      if (eventsChecked.length > 0) {
+        crearCard(eventsChecked, ".cards")
+      } else {
+        crearCard(datos.events, ".cards")
+      }
+    };
+
+  }
+  catch {
+    console.log("Ha ocurrido un error, espere un instante y vuelva a recargar la página")
+  }
+}
+
+traerDatos()
+
+
 //////////////////-----------CARDS-----------/////////////////////
 const queryString = location.search
 const params = new URLSearchParams(queryString)
-
-
-let events = data.events
 
 let fragmento = document.createDocumentFragment()
 
@@ -51,45 +103,7 @@ function crearCard(arr, contenedor) {
 
   cards2.appendChild(fragmento)
 }
-crearCard(events, ".cards")
-///////////////////--------TASK3----------///////////////////////
 
-let categorias = [];
+// crearCard(datos.events, ".cards")
 
-let category = document.getElementById("form-category")
-data.events.forEach(evento => {
-  if (!categorias.includes(evento.category)) {
-    categorias.push(evento.category)
-    category.innerHTML += `
-          <div id="content-cat">
-              <label class="checkbox">
-                  <input type="checkbox" name="category" id="${evento.category}" value="${evento.category}">
-                  <span>${evento.category}</span>
-              </label>
-          </div>`
-  }
-});
-
-//------------- FILTRO CATEGORÍA -------------//
-let checkBoton = document.querySelectorAll("input[type='checkbox']")
-let eventsChecked = []
-
-checkBoton.forEach(boton => boton.addEventListener('change', verificado))
-function verificado() {
-  eventsChecked = []
-  let seleccionar = Array.from(checkBoton).filter(check => check.checked)
-  for (const event of data.events) {
-    seleccionar.forEach(input => {
-      if (event.category == input.value) {
-        eventsChecked.push(event)
-      }
-    });
-  }
-  if (eventsChecked.length > 0) {
-    crearCard(eventsChecked, ".cards")
-  } else {
-    crearCard(data.events, ".cards")
-  }
-};
-
-//POR EL MOMENTO, NO PUEDO REALIZAR EL BUSCADOR//
+//POR EL MOMENTO, NO PUEDO REALIZAR EL BUSCADOR PERO YA LO VOY A HACER//

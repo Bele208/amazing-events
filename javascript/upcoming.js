@@ -1,3 +1,21 @@
+urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
+
+
+// function nuevoData() {
+//     fetch(urlApi)
+//         .then(response => response.json())
+//         .then(data =>{
+//              console.log(data)
+//              let eventos = data.events
+//              console.log(eventos)
+//              crearCard(eventos, ".cards")
+//     })
+//     .catch(error =>{
+//         console.log(error)
+//     })
+// }
+
+// nuevoData()
 ////////////////-----------EVENTOS FUTUROS----------///////////////////
 let currentDate = data.currentDate
 
@@ -11,7 +29,7 @@ function compararFechas(events) {
   return eventosFuturos;
 }
 
-console.log(compararFechas(data.events))
+console.log(compararFechas(events))
 
 //////////////////-----------CARDS-----------/////////////////////
 let events = data.events

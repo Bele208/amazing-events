@@ -1,14 +1,28 @@
-let query = location.search
+urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
 
+async function traerDatos() {
+    try {
+        let response = await fetch(urlApi)
+
+        let datos = await response.json()
+
+        tarjetaDetails(datos.events)
+    }
+    catch {
+        console.log()
+    }
+}
+
+traerDatos()
+
+let query = location.search
 let parametros = new URLSearchParams(query)
 
 let id = parametros.get("id")
 
-let eventos = data.events
-let eventDetail = eventos.find(eventDetail => eventDetail._id == id)
-
-
-let contDetails = document.querySelector(".cards-details")
+function tarjetaDetails(arr) {
+    let contDetails = document.querySelector(".cards-details")
+    let eventDetail = arr.find(eventDetail => eventDetail._id == id)
 
     contDetails.innerHTML = `<div class="details">
         <img src="${eventDetail.image}" alt="${eventDetail.name}">
@@ -24,4 +38,7 @@ let contDetails = document.querySelector(".cards-details")
             </div>
         </div>
 </div>`
+
+}
+
 
