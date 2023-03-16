@@ -2,9 +2,21 @@ let urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
 
 async function traerDatos() {
   try {
+
+    //FUNCION DEL LOADER
+    function mostrarLoader() {
+      document.getElementById("loader").style.display = "block";
+    }
+    mostrarLoader()
+
+    function ocultarLoader() {
+      document.getElementById("loader").style.display = "none";
+    }
+
     let response = await fetch(urlApi)
 
     let datos = await response.json()
+    console.log(datos)
 
     crearCard(datos.events, ".cards")
 
@@ -43,6 +55,8 @@ async function traerDatos() {
         crearCard(datos.events, ".cards")
       }
     };
+
+    ocultarLoader()
 
   }
   catch {
@@ -104,6 +118,3 @@ function crearCard(arr, contenedor) {
   cards2.appendChild(fragmento)
 }
 
-// crearCard(datos.events, ".cards")
-
-//POR EL MOMENTO, NO PUEDO REALIZAR EL BUSCADOR PERO YA LO VOY A HACER//

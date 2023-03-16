@@ -1,20 +1,90 @@
-////////////////-----------EVENTOS PASADOS----------///////////////////
-let currentDate = data.currentDate
+// ////////////////-----------EVENTOS PASADOS----------///////////////////
 
-let eventosPasados = []
-function pastFechas(events) {
-  for (events of events) {
-    if (currentDate > events.date) {
-      eventosPasados.push(events)
+let urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
+
+async function traerDatos() {
+  try {
+
+    //FUNCION DEL LOADER
+    function mostrarLoader() {
+      document.getElementById("loader").style.display = "block";
     }
+    mostrarLoader()
+
+    function ocultarLoader() {
+      document.getElementById("loader").style.display = "none";
+    }
+
+    let response = await fetch(urlApi)
+
+    let datos = await response.json()
+
+    // FILTRAR LAS CARDS Y MOSTRAR LOS EVENTOS FUTUROS
+    let eventosPasados = []
+    function compararFechas(elEvento) {
+      for (elEvento of datos.events) {
+        if (datos.currentDate > elEvento.date) {
+          eventosPasados.push(elEvento)
+        }
+      }
+      return eventosPasados;
+    }
+
+    compararFechas(eventosPasados)
+
+    // AGREGAR CATEGORIAS
+    let categorias = []
+    let category = document.getElementById("form-category")
+    datos.events.forEach(evento => {
+      if (!categorias.includes(evento.category)) {
+        categorias.push(evento.category)
+        category.innerHTML += `
+              <div id="content-cat">
+                  <label class="checkbox">
+                      <input type="checkbox" name="category" id="${evento.category}" value="${evento.category}">
+                      <span>${evento.category}</span>
+                  </label>
+              </div>`
+      }
+    });
+
+    let checkBoton = document.querySelectorAll("input[type='checkbox']")
+    let eventsChecked = []
+
+    checkBoton.forEach(boton => boton.addEventListener('change', verificado))
+    function verificado() {
+      eventsChecked = []
+      let seleccionar = Array.from(checkBoton).filter(check => check.checked)
+      for (const event of eventosPasados) {
+        seleccionar.forEach(input => {
+          if (event.category == input.value) {
+            eventsChecked.push(event)
+          }
+        });
+      }
+      if (eventsChecked.length > 0) {
+        crearCard(eventsChecked, ".cards")
+      } else {
+        crearCard(eventosPasados, ".cards")
+      }
+    };
+
+    crearCard(eventosPasados, ".cards")
+    ocultarLoader()
+
   }
-  return eventosPasados;
+  catch {
+    console.log("Ha ocurrido un error, espere un instante y vuelva a recargar la página")
+    // alert("Ha ocurrido un error, espere un instante y vuelva a recargar la página")
+  }
 }
 
-console.log(pastFechas(data.events))
+traerDatos()
 
 //////////////////-----------CARDS-----------/////////////////////
-let events = data.events
+const queryString = location.search
+const params = new URLSearchParams(queryString)
+
 let fragmento = document.createDocumentFragment()
 
 function crearCard(arr, contenedor) {
@@ -61,46 +131,3 @@ function crearCard(arr, contenedor) {
 
   cards2.appendChild(fragmento)
 }
-crearCard(eventosPasados, ".cards")
-///////////////////--------TASK3----------///////////////////////
-
-let categorias = [];
-
-let category = document.getElementById("form-category")
-data.events.forEach(evento => {
-  if (!categorias.includes(evento.category)) {
-    categorias.push(evento.category)
-    category.innerHTML += `
-            <div id="content-cat">
-                <label class="checkbox">
-                    <input type="checkbox" name="category" id="${evento.category}" value="${evento.category}">
-                    <span>${evento.category}</span>
-                </label>
-            </div>`
-  }
-});
-
-//------------- FILTRO CATEGORÍA -------------//
-
-let checkBoton = document.querySelectorAll("input[type='checkbox']")
-let eventsChecked = []
-checkBoton.forEach(boton => boton.addEventListener('change', verificado))
-function verificado() {
-  eventsChecked = []
-  let seleccionar = Array.from(checkBoton).filter(check => check.checked)
-  for (const event of eventosPasados) {
-    seleccionar.forEach(input => {
-      if (event.category == input.value) {
-        eventsChecked.push(event)
-      }
-    });
-  }
-  if (eventsChecked.length > 0) {
-    crearCard(eventsChecked, ".cards")
-  } else {
-    crearCard(eventosPasados, ".cards")
-  }
-};
-
-//--------------------BUSCADOR--------------------//
-

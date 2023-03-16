@@ -379,3 +379,22 @@ footer p{
         font-size: 0.8rem; 
     }
 }
+
+
+/* LOADER */
+
+#loader {
+    margin: 0 auto;
+    border: 16px solid #e10f5f;
+    border-top: 16px solid #7734db;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
