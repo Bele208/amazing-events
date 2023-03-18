@@ -71,11 +71,23 @@ async function traerDatos() {
 
     crearCard(eventosPasados, ".cards")
     ocultarLoader()
+        //---------------------- B U S C A D O R ---------------------------//
 
+        let botonEnviar = document.getElementById("enviar");
+
+        botonEnviar.addEventListener("click", function(event){
+          event.preventDefault();
+          let searchInput = document.getElementById("search").value.toLowerCase();
+          console.log(searchInput);
+          eventsChecked = eventosPasados.filter(function(evento){
+            return evento.name.toLowerCase().includes(searchInput) || evento.description.toLowerCase().includes(searchInput);
+          });
+          crearCard(eventsChecked, ".cards");
+        });
+        
   }
   catch {
     console.log("Ha ocurrido un error, espere un instante y vuelva a recargar la página")
-    // alert("Ha ocurrido un error, espere un instante y vuelva a recargar la página")
   }
 }
 

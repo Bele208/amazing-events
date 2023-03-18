@@ -1,17 +1,27 @@
 let urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
 
-async function traerNumeros(){
-    try{
+async function traerNumeros() {
+    try {
 
-    let response = await fetch(urlApi)
+        //FUNCION DEL LOADER
+        function mostrarLoader() {
+            document.getElementById("loader").style.display = "block";
+        }
+        mostrarLoader()
 
-    let datos = await response.json()
-    console.log(datos.currentDate);
+        function ocultarLoader() {
+            document.getElementById("loader").style.display = "none";
+        }
+        let response = await fetch(urlApi)
 
+        let datos = await response.json()
+        console.log(datos.currentDate);
+        console.log(datos.events[0].capacity)
+        ocultarLoader()
     }
     catch {
         console.log("Ha ocurrido un error, espere un instante y vuelva a recargar la página")
-      }
+    }
 
 }
 
