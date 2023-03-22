@@ -83,20 +83,36 @@ async function traerDatos() {
     crearCard(eventosFuturos, ".cards")
     ocultarLoader()
 
-        //---------------------- B U S C A D O R ---------------------------//
+    //---------------------- B U S C A D O R ---------------------------//
 
-        let botonEnviar = document.getElementById("enviar");
+    let botonEnviar = document.getElementById("enviar");
 
-        botonEnviar.addEventListener("click", function(e){
-          e.preventDefault();
-          let searchInput = document.getElementById("search").value.toLowerCase();
-          console.log(searchInput);
-          eventsChecked = eventosFuturos.filter(function(evento){
-            return evento.name.toLowerCase().includes(searchInput) || evento.description.toLowerCase().includes(searchInput);
-          });
-          crearCard(eventsChecked, ".cards");
-        });
+    botonEnviar.addEventListener("click", function (e) {
+      e.preventDefault();
+      let searchInput = document.getElementById("search").value.toLowerCase();
+      console.log(searchInput);
+      eventsChecked = eventosFuturos.filter(function (evento) {
+        return evento.name.toLowerCase().includes(searchInput) || evento.description.toLowerCase().includes(searchInput);
+      });
 
+      if (eventsChecked.length === 0) {
+        let cardsContainer = document.querySelector(".cards");
+        cardsContainer.innerHTML = "<p>No results found. Try another word, for example: food.</p>";
+      } else {
+        crearCard(eventsChecked, ".cards");
+      }
+    });
+    
+    inputSearch = document.getElementById("search");
+    
+    inputSearch.addEventListener("input", function () {
+      let searchInput = inputSearch.value.toLowerCase();
+      if (searchInput === "") {
+        crearCard(eventosFuturos, ".cards");
+      }
+    });
+    
+    //----------------------F I N   B U S C A D O R ---------------------------//
   }
   catch {
     console.log("Ha ocurrido un error, espere un instante y vuelva a recargar la página")

@@ -179,7 +179,10 @@ th{
 
 .content-table{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-right: 20px;
+
 }
 
 footer{
@@ -248,6 +251,13 @@ footer p{
 }
 
 /*estilos buscador*/
+.cards>p{
+    background-color: #fffdff;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 20px;
+}
 #search{
     padding-left: 4px;
     border-radius: 4px;
@@ -258,6 +268,11 @@ footer p{
     border-radius: 5px;
     padding: 3px;
     background-color:#fcebfc;
+}
+
+/* detalles tabla */
+.col-title{
+    font-weight: bold;
 }
 
 

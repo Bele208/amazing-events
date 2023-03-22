@@ -78,12 +78,28 @@ async function traerDatos() {
         botonEnviar.addEventListener("click", function(event){
           event.preventDefault();
           let searchInput = document.getElementById("search").value.toLowerCase();
-          console.log(searchInput);
+
           eventsChecked = eventosPasados.filter(function(evento){
             return evento.name.toLowerCase().includes(searchInput) || evento.description.toLowerCase().includes(searchInput);
           });
-          crearCard(eventsChecked, ".cards");
+          if (eventsChecked.length === 0) {
+            let cardsContainer = document.querySelector(".cards");
+            cardsContainer.innerHTML = "<p>No results found. Try another word, for example: food.</p>";
+          } else {
+            crearCard(eventsChecked, ".cards");
+          }
         });
+        
+        inputSearch = document.getElementById("search");
+        
+        inputSearch.addEventListener("input", function () {
+          let searchInput = inputSearch.value.toLowerCase();
+          if (searchInput === "") {
+            crearCard(eventosPasados, ".cards");
+          }
+        });
+        
+        //----------------------F I N   B U S C A D O R ---------------------------//
         
   }
   catch {

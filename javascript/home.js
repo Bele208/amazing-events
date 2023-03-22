@@ -16,11 +16,11 @@ async function traerDatos() {
     let response = await fetch(urlApi)
 
     let datos = await response.json()
-    console.log(datos)
 
     crearCard(datos.events, ".cards")
 
     // Agregar categorías 
+
     let categorias = []
     let category = document.getElementById("form-category")
     datos.events.forEach(evento => {
@@ -35,6 +35,8 @@ async function traerDatos() {
               </div>`
       }
     });
+
+    // Chequear categorías
     let checkBoton = document.querySelectorAll("input[type='checkbox']")
     let eventsChecked = []
 
@@ -65,13 +67,27 @@ async function traerDatos() {
     botonEnviar.addEventListener("click", function (e) {
       e.preventDefault();
       let searchInput = document.getElementById("search").value.toLowerCase();
-      console.log(searchInput);
       eventsChecked = datos.events.filter(function (evento) {
         return evento.name.toLowerCase().includes(searchInput) || evento.description.toLowerCase().includes(searchInput);
       });
-      crearCard(eventsChecked, ".cards");
+
+      if (eventsChecked.length === 0) { 
+        let cardsContainer = document.querySelector(".cards");
+        cardsContainer.innerHTML = "<p>No results found. Try another word, for example: food.</p>";
+      } else { 
+        crearCard(eventsChecked, ".cards");
+      }
     });
 
+    inputSearch = document.getElementById("search");
+
+    inputSearch.addEventListener("input", function () { 
+      let searchInput = inputSearch.value.toLowerCase();
+      if (searchInput === "") {
+        crearCard(datos.events, ".cards");
+      }
+    });
+    //----------------------F I N   B U S C A D O R ---------------------------//
   }
   catch {
     console.log("Ha ocurrido un error, espere un instante y vuelva a recargar la página")
